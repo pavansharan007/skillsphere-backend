@@ -70,8 +70,8 @@ const login = async(req ,res) => {
     await user.save({validateBeforeSave:false})
     return res.status(200)
     
-    .cookie("accessToken",accesstoken,{httpOnly:true,secure:true})
-    .cookie("refreshToken",refreshtoken,{httpOnly:true,secure:true})
+    .cookie("accessToken",accesstoken,{httpOnly:true,secure:true,sameSite: "none" })
+    .cookie("refreshToken",refreshtoken,{httpOnly:true,secure:true,sameSite: "none" })
     .json("user logged in succesfulkky")
     
 }

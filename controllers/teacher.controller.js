@@ -57,7 +57,7 @@ const teacherSignIn = async(req , res)=> {
 
   const accessToken = jwt.sign({id:teacher._id,email:email},process.env.ACCESS_TOKEN_SECRET,{expiresIn:process.env.ACCESS_TOKEN_EXPIRY})
   res.status(200)
-  .cookie("TeacherAccessToken",accessToken,{httpOnly:true,secure:true})
+  .cookie("TeacherAccessToken",accessToken,{httpOnly:true,secure:true,sameSite: "none"})
   .json("techer logged in succesfully")
 }
 
@@ -69,7 +69,7 @@ const logout = async(req ,res) => {
   }
 
   res.status(200)
-  .clearCookie("accessToken",{httpOnly:true,secure:true,sameSite: "None"})
+  .clearCookie("accessToken",{httpOnly:true,secure:true,sameSite: "none"})
   .json("teacher logged out succesfully")
 }
 
