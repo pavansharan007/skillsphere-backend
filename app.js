@@ -3,10 +3,22 @@ import cors from "cors"
 import cookieParser from "cookie-parser"
 const app = express()
 
+const allowedOrigins = [
+  "http://localhost:5173", // dev
+  "https://skillsphere-frontend-blush.vercel.app" // prod
+];
+
 app.use(cors({
-  origin: "https://skillsphere-frontend-blush.vercel.app",
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
   credentials: true
 }));
+
 //cors error
 
 app.use(express.json({
