@@ -4,7 +4,7 @@ import cookieParser from "cookie-parser"
 const app = express()
 
 app.use(cors({
-    origin:'http://localhost:5111',
+    origin:'https://skillsphere-frontend-blush.vercel.app/',
     credentials: true
 }))//cors error
 
