@@ -1,7 +1,9 @@
 import express from "express"
 import cors from "cors"
 import cookieParser from "cookie-parser"
-const apiwatch = require('apiwatch-sdk');
+// @ts-ignore
+import apiwatch from "apiwatch-sdk";
+
 
 
 const app = express()
