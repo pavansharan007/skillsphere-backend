@@ -1,6 +1,7 @@
 import express from "express"
 import cors from "cors"
 import cookieParser from "cookie-parser"
+import apiwatch from "apiwatch-sdk"
 const app = express()
 
 const allowedOrigins = [
@@ -20,7 +21,7 @@ app.use(cors({
 }));
 
 //cors error
-
+app.use(apiwatch('apw_live_5fe2a0237a304a46ae06a5a2be49ba82'))
 app.use(express.json({
     limit:'16kb'
 }))// to configure json actaully to comunicate data
