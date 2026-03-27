@@ -25,9 +25,7 @@ app.use(cors({
 }));
 
 //cors error
-app.use(apiwatch('apw_live_5fe2a0237a304a46ae06a5a2be49ba82', {
-  ingestUrl: 'http://localhost:4000/ingest'
-}));
+app.use(apiwatch('apw_live_5fe2a0237a304a46ae06a5a2be49ba82'));
 
 app.use(express.json({
     limit:'16kb'
